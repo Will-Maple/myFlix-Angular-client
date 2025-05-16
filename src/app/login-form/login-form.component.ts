@@ -29,6 +29,7 @@ export class LoginFormComponent implements OnInit {
         this.snackBar.open(result, 'Ok', {
           duration: 2000,
         });
+        localStorage.setItem('token', result.token);
       },
       (result) => {
         this.snackBar.open(result, 'Ok', {

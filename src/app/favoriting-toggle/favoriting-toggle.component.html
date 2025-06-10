@@ -1,0 +1,14 @@
+<mat-dialog-content>
+  <img src={{data.imageUrl}} alt={{data.movie.Title}}>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" matButton="filled"
+    *ngIf="favoritingLocalService.isFavorite(data.movie._id); else addFavButton" (click)="deleteFavorite()">
+    Remove from Favorites
+  </button>
+  <ng-template #addFavButton>
+    <button mat-raised-button (click)="addFavorite()" color="accent" matButton="filled">
+      Add to Favorites?</button>
+  </ng-template>
+  <button mat-button (click)="close()" style="margin-left: auto;" matButton="text">Close</button>
+</mat-dialog-actions>

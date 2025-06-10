@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Bye {{username}}?</h2>
+<mat-dialog-content>
+  <p>Are you sure???</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="deleteUser()">Delete</button>
+  <button mat-button (click)="close()" style="margin-left: auto;">Close</button>
+</mat-dialog-actions>

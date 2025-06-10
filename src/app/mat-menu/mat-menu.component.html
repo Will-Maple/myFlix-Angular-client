@@ -1,0 +1,21 @@
+<div class="header">
+  <span class="nav">
+  <h1 (click)="moviesRoute()">Всем Привет!</h1>
+  <button mat-icon-button color="accent" [matMenuTriggerFor]="appMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  </span>
+  <span class="exLinks">
+    <a class="link" target="_blank" href="https://will-maple.github.io/Portfolio-Website/portfolio.html">
+      <img class="linkImg" src="/assets/img/logo.png" alt="Portfolio Link">
+    </a>
+    <a class="link" target="_blank" href="https://github.com/Will-Maple/myFlix-Angular-client">
+      <img class="linkImg" src="/assets/img/github.svg" alt="Github">
+    </a>
+  </span>
+</div>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item (click)="userRoute()">User Details</button>
+  <button mat-menu-item (click)="logoutUser.logoutUser()">Logout</button>
+</mat-menu>

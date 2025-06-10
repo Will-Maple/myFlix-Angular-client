@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { MatDialogRef } from '@angular/material/dialog';
-
 import { FetchApiDataService } from '../fetch-api-data.service';
 
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -11,16 +10,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './user-registration-form.component.html',
   styleUrl: './user-registration-form.component.scss',
 })
-export class UserRegistrationFormComponent implements OnInit {
+export class UserRegistrationFormComponent {
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  close(): void {
+    this.dialogRef.close();
+  }
 
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(

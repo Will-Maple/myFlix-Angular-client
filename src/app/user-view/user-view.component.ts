@@ -32,6 +32,10 @@ export class UserViewComponent {
     }
   }
 
+  /**
+   * Returns user data from api based on this.username
+   * @returns {array} user with Username, Password, Email, Birthdate, Favorites
+   */
   getUser(): void {
     this.fetchApiData.getUser(this.username).subscribe((resp: any) => {
       this.user = resp;
@@ -46,18 +50,29 @@ export class UserViewComponent {
     });
   }
 
+  /**
+   * Converts user.Birthday to ISOString format
+   * @returns {string} with yyyy-mm-dd format
+   */
   formatDate(): string {
     if (!this.user.Birthday) { return '' };
     const date = new Date(this.user.Birthday);
     return date.toISOString().split('T')[0];
   }
 
+  /**
+  * opens UserEditComponent as a dialog 
+  */
   openEditUserDialog(user: any, birthday: string): void {
     this.dialog.open(UserEditComponent, {
       data: { user, birthday },
       width: '280px'
     });
   }
+
+  /**
+  * opens UserDeleteComponent as a dialog 
+  */
   openDeleteUserDialog(): void {
     this.dialog.open(UserDeleteComponent, {
       width: '280px'

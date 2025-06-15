@@ -22,6 +22,10 @@ export class FavoritingToggleComponent {
     this.dialogRef.close();
   }
 
+  /**
+   * Uses this.data.movie._id from matDialogData and username from local storage thru provide username storage...
+   * to add a favorite to a user's list of favorites thru the api and then when sucessful to the favorites observable.
+   */
   addFavorite(): void {
     this.username = this.provideUsername.provideUsername();
     this.fetchApiData.getAddFav(this.username, this.data.movie._id).subscribe({
@@ -35,6 +39,10 @@ export class FavoritingToggleComponent {
     })
   }
 
+  /**
+ * Uses this.data.movie._id from matDialogData and username from local storage thru provide username storage...
+ * to remove a favorite from a user's list of favorites thru the api and then when sucessful from the favorites observable.
+ */
   deleteFavorite(): void {
     this.username = this.provideUsername.provideUsername();
     this.fetchApiData.getDeleteFav(this.username, this.data.movie._id).subscribe({

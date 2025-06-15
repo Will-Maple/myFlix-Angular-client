@@ -12,6 +12,10 @@ export class ProvideUsernameService {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
+  /**
+   * fetches username from localStorage
+   * @returns {string} username
+   */
   provideUsername(): string {
     if (isPlatformBrowser(this.platformId)) {
       this.username = localStorage.getItem('username') || '';

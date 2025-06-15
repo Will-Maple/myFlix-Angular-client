@@ -11,6 +11,12 @@ export class LoginRedirect implements CanActivate {
     public isPlatformBrowser: IsPlatformBrowserService
   ) { }
 
+  /**
+   * activates if user is already logged in and is trying to access /welcome page, redirects to /movies page
+   * @param route 
+   * @param state 
+   * @returns {boolean}
+   */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
     if (!this.isPlatformBrowser.test()) {
       return false;

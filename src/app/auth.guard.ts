@@ -6,6 +6,12 @@ import { IsPlatformBrowserService } from './is-platform-browser.service';
 export class AuthGuard implements CanActivate {
   constructor(private router: Router, public isPlatformBrowser: IsPlatformBrowserService) { }
 
+  /**
+   * Returns to /welcome page if there is no logged in user
+   * @param route 
+   * @param state 
+   * @returns {boolean}
+   */
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.isPlatformBrowser.test()) {
       const token = localStorage.getItem('token');

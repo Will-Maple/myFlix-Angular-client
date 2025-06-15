@@ -25,22 +25,21 @@ export class UserEditComponent {
     this.dialogRef.close();
   }
 
+  /**
+   * Uses this.username and this.userEditData to edit user on api.
+   * Sets local storage username to new username and routes back to /movies.
+   */
   editUser(): void {
     this.username = this.provideUsername.provideUsername();
-    this.fetchApiData.editUser(this.username, this.userEditData)
-      .pipe(
-        finalize(() => {
-          console.log(this.userEditData);
-        })
-      ).subscribe({
-        next: (response: any) => {
-          localStorage.setItem('username', this.userEditData.Username);
-          this.router.navigate(['/movies']);
-          this.dialogRef.close();
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
+    this.fetchApiData.editUser(this.username, this.userEditData).subscribe({
+      next: (response: any) => {
+        localStorage.setItem('username', this.userEditData.Username);
+        this.router.navigate(['/movies']);
+        this.dialogRef.close();
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 }

@@ -20,6 +20,10 @@ export class UserDeleteComponent {
     this.dialogRef.close();
   }
 
+  /**
+   * Uses this.username to delete user from the api.
+   * Clears localStorage and routes back to /welcome page.
+   */
   deleteUser(): void {
     this.fetchApiData.deleteUser(this.username).subscribe((resp: any) => {
       console.log("Bye Friend");

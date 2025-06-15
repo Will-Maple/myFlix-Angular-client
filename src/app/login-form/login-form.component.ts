@@ -28,6 +28,9 @@ export class LoginFormComponent {
     this.dialogRef.close();
   }
 
+  /**
+   * Sends login input to login api method, if sucessful sets jwt token and username to local storge, sets favorites observable thru favoritinglocalservice, and redirects to /movies page.
+   */
   loginUser(): void {
     this.loading = true;
     this.fetchApiData.userLogin(this.loginData).subscribe(

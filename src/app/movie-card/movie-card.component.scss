@@ -1,3 +1,11 @@
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
 mat-card {
   display: flex;
   flex-direction: column;

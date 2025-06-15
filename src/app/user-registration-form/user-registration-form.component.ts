@@ -23,6 +23,9 @@ export class UserRegistrationFormComponent {
     this.dialogRef.close();
   }
 
+  /**
+   * Uses this.userData to create a new user with the api.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (result) => {
